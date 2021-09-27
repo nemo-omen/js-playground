@@ -51,6 +51,11 @@ class SinglyLinkedList {
     return current;
   }
 
+  /**
+   * Find a node by its val
+   * @param {string} val 
+   * @returns NODE | undefined
+   */
   findByVal(val) {
     let idx = 0;
     let current = this.head;
@@ -63,6 +68,11 @@ class SinglyLinkedList {
     }
   }
   
+  /**
+   * Find a node by its id
+   * @param {int} id 
+   * @returns Node | undefined
+   */
   findById(id) {
     let idx = 0;
     let current = this.head;
@@ -75,6 +85,11 @@ class SinglyLinkedList {
     }
   }
 
+  /**
+   * Get a Node by its index
+   * @param {int} index 
+   * @returns Node | undefined
+   */
   get(index) {
     let current = this.head;
     for(let i = 0; i <= index; i++) {
@@ -85,11 +100,25 @@ class SinglyLinkedList {
     }
   }
 
+  insert(val, index) {
+    if(index < 0 || index > this.length) return false;
+    if(index === this.length) return !!this.push(val);
+    let newNode = new Node(val);
+    let previous = this.get(index - 1);
+    let temp = previous.next;
+    previous.next = newNode;
+    newNode.next = temp;
+    this.length++;
+    newNode.id = this.length;
+    return true;
+  }
+
   /**
-   * 
+   * Update a Node's value
    * @param {string} newVal   value update node with
    * @param {object} options  parameter to find node by
-   *                          {id: int, value: string, index: int} 
+   *                          {id: int, value: string, index: int}
+   * @returns Object {old: {id, val}, new: Node} 
    */
   update(newVal, options) {
     const { id, value, index } = options;
@@ -113,6 +142,26 @@ class SinglyLinkedList {
 
     return {old, new: target};
   }
+
+  /**
+   * Get a formatted string representation of the linked list
+   * ex: `[{id, val}->{id, val}->etc]
+   * @returns string 
+   */
+  toString() {
+    let str = '[';
+    let current = this.head;
+    for(let i = 0; i < this.length; i++) {
+      str += '{id: ' + current?.id + ', val: ' + current?.val + '}';
+      if(current?.next !== null) {
+        str += '->';
+      }
+
+      current = current?.next;
+    }
+    str += ']';
+    return  str;
+  }
 }
 
 
@@ -132,3 +181,13 @@ console.log('Found by val(GHI): ', list.findByVal('GHI'));
 console.log('Retrieved by idx: ', list.get(3));
 
 console.log(list.update('QRS', {index: 4}));
+
+list.insert('LPO', 1);
+
+console.log(list);
+
+console.log(list.toString());
+
+// console.log(list.get((3)));
+
+// console.log(list.toString());
