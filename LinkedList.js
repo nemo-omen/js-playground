@@ -3,7 +3,7 @@ import { randomString } from './randomString.js';
 
 class Node {
   constructor(val) {
-    this.id = simpleHash(randomString(3));
+    this.id = 0;
     this.val = val;
     this.next = null;
   }
@@ -27,6 +27,7 @@ class SinglyLinkedList {
       this.tail = newNode;
     }
     this.length++;
+    this.tail.id = this.length;
     return this;
   }
 
@@ -49,12 +50,85 @@ class SinglyLinkedList {
     }
     return current;
   }
+
+  findByVal(val) {
+    let idx = 0;
+    let current = this.head;
+    for(let i = 0; i < this.length; i++) {
+      if(current.val === val) {
+        return current;
+      }
+      current = current.next;
+      idx++;
+    }
+  }
+  
+  findById(id) {
+    let idx = 0;
+    let current = this.head;
+    for(let i = 0; i < this.length; i++) {
+      if(current.id === id) {
+        return current;
+      }
+      current = current.next;
+      idx++;
+    }
+  }
+
+  get(index) {
+    let current = this.head;
+    for(let i = 0; i <= index; i++) {
+      if(i === index) {
+        return current;
+      }
+      current = current.next;
+    }
+  }
+
+  /**
+   * 
+   * @param {string} newVal   value update node with
+   * @param {object} options  parameter to find node by
+   *                          {id: int, value: string, index: int} 
+   */
+  update(newVal, options) {
+    const { id, value, index } = options;
+    let target = null;
+    let old = null;
+
+    if(id !== undefined) {
+      target = this.findById(id);
+    } else if(value !== undefined) {
+      target = this.findByVal(value);
+    } else if(index !== undefined) {
+      target = this.get(index);
+    } else {
+      target = undefined;
+    }
+
+    if(target !== null && target !== undefined) {
+      old = {id: target.id, val: target.val};
+      target.val = newVal;
+    }
+
+    return {old, new: target};
+  }
 }
 
 
+
 const list = new SinglyLinkedList();
-list.push(randomString(3));
-list.push(randomString(3));
-list.push(randomString(3));
-list.push(randomString(3));
+list.push('ABC');
+list.push('DEF');
+list.push('GHI');
+list.push('KLM');
+list.push('NOP');
 console.log(list);
+
+console.log('Found by id(3): ', list.findById(3));
+
+console.log('Found by val(GHI): ', list.findByVal('GHI'));
+
+console.log('Retrieved by idx: ', list.get(3));
+
+console.log(list.update('QRS', {index: 4}));
