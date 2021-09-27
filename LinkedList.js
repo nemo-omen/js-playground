@@ -7,6 +7,10 @@ class Node {
     this.val = val;
     this.next = null;
   }
+
+  toString() {
+    return `{id: ${this.id}, val: ${this.val}, next: ${this.next.id}}`
+  }
 }
 
 class SinglyLinkedList {
@@ -29,6 +33,30 @@ class SinglyLinkedList {
     this.length++;
     this.tail.id = this.length;
     return this;
+  }
+
+  /**
+   * Adds Node to front of list
+   * @param {string} val 
+   */
+  unshift(val) {
+    let newNode = new Node(val);
+    newNode.next = this.head;
+    this.head = newNode;
+    this.length++;
+    this.head.id = this.length;
+  }
+
+  /**
+   * Remove first Node in list
+   */
+  shift() {
+    if(!this.head) return undefined;
+
+    let temp = this.head;
+    this.head = this.head.next;
+    this.length--;
+    temp = null;
   }
 
   pop() {
@@ -172,22 +200,26 @@ list.push('DEF');
 list.push('GHI');
 list.push('KLM');
 list.push('NOP');
-console.log(list);
+console.log(list.toString());
 
-console.log('Found by id(3): ', list.findById(3));
+console.log('Found by id(3): ', list.findById(3).toString());
 
-console.log('Found by val(GHI): ', list.findByVal('GHI'));
+console.log('Found by val(GHI): ', list.findByVal('GHI').toString());
 
-console.log('Retrieved by idx: ', list.get(3));
+console.log('Retrieved by idx: ', list.get(3).toString());
 
 console.log(list.update('QRS', {index: 4}));
 
 list.insert('LPO', 1);
 
-console.log(list);
+console.log(list.toString());
 
 console.log(list.toString());
 
-// console.log(list.get((3)));
+list.unshift('YUT');
 
-// console.log(list.toString());
+console.log(list.toString());
+
+list.shift();
+
+console.log(list.toString());

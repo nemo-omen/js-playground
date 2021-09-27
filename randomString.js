@@ -5,5 +5,3 @@ export function randomString(length) {
   }
   return chars.join('');
 }
-
-console.log(randomString(3));

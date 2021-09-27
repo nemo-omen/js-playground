@@ -9,5 +9,3 @@ export function simpleHash(s) {
         h = Math.imul(h ^ s.charCodeAt(i), 2654435761);
     return (h ^ h >>> 16) >>> 0;
 }
-
-console.log(simpleHash(randomString(4)));
