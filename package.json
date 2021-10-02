@@ -1,7 +1,6 @@
 {
   "name": "playground",
   "version": "1.0.0",
-  "description": "",
   "main": "HashTable.js",
   "type": "module",
   "scripts": {
@@ -9,5 +8,14 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nemo-omen/js-playground.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nemo-omen/js-playground/issues"
+  },
+  "homepage": "https://github.com/nemo-omen/js-playground#readme",
+  "description": ""
 }
