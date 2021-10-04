@@ -36,7 +36,8 @@ function splitLines(line) {
 
 function getTokenType(token) {
   let tokenType = undefined;
-  // console.log(token);
-  console.log(/^[A-Za-z]&/.test(token));
+  if(/\w/.test(token)) {
+    tokenType = 'letter';
+  }
   return tokenType;
 }
