@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { readFileSync } from 'fs';
 import ReadLine from 'readline';
-
+import { Scanner } from './Scanner.js';
 
 const __dirname = path.resolve();
 
@@ -11,33 +11,8 @@ const filePath = path.join(__dirname, args[0]);
 
 const fileContents = readFileSync(filePath).toString();
 
-const ri = ReadLine.createInterface({
-  input: fs.createReadStream(filePath),
-  output: process.stdout,
-  console: false,
-});
+const scanner = new Scanner(fileContents);
 
-ri.on('line', function(line) {
-  splitLines(line);
-});
+scanner.scanTokens();
 
-function splitLines(line) {
-  const tokens = line.split('');
-  const tokanVals = tokens.map((token) => {
-    return {
-      type: getTokenType(token),
-      value: token,
-      leftSib: tokens[tokens.indexOf(token) - 1],
-      rightSib: tokens[tokens.indexOf(token) + 1],
-    }
-  });
-  console.log(tokanVals);
-}
-
-function getTokenType(token) {
-  let tokenType = undefined;
-  if(/\w/.test(token)) {
-    tokenType = 'letter';
-  }
-  return tokenType;
-}
+console.log(scanner.getTokens());
