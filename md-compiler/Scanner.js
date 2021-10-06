@@ -48,7 +48,7 @@ export class Scanner {
       case '+': this.#addToken('PLUS'); break;
       case ';': this.#addToken('SEMICOLON'); break;
       case '*': this.#addToken('STAR'); break;
-      case '#': this.#addToken('HASH'); break;
+      case '#': this.#addToken('H1'); break;
       case ' ': break;
       case '\r': break;
       case '\n': 
