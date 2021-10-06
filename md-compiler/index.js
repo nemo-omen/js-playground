@@ -4,6 +4,7 @@ import { readFileSync } from 'fs';
 import ReadLine from 'readline';
 import { Scanner } from './Scanner.js';
 import { Console } from 'console';
+import { Tree, TreeNode } from './MDTree.js';
 
 const __dirname = path.resolve();
 
@@ -16,6 +17,8 @@ const rl = ReadLine.createInterface({
   input: fs.createReadStream(filePath),
   // output: process.stdout,
 });
+
+const docTree = new Tree();
 
 rl.on('line', (line) => {
   parseCharGroups(line);
