@@ -35,6 +35,7 @@ export class Scanner {
 
   #scanToken() {
     let c = this.#advance();
+
     switch(c) {
       case '(': this.#addToken('LEFT_PAREN'); break;
       case ')': this.#addToken('RIGHT_PAREN'); break;
@@ -48,11 +49,9 @@ export class Scanner {
       case '+': this.#addToken('PLUS'); break;
       case ';': this.#addToken('SEMICOLON'); break;
       case '*': this.#addToken('STAR'); break;
-      case '#': this.#addToken('H1'); break;
       case ' ': break;
       case '\r': break;
       case '\n': 
-        // this.#addToken('EOL'); 
         this.#line++;
         break;
     }
