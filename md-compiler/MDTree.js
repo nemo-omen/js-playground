@@ -9,7 +9,8 @@ export class TreeNode {
   
   children = [];
 
-  constructor(value) {
+  constructor(type, value) {
+    this.type = type;
     this.value = value;
   }
 

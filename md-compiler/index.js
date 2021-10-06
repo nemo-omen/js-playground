@@ -20,8 +20,14 @@ const rl = ReadLine.createInterface({
 
 const docTree = new Tree();
 
+const rootNode = new TreeNode('DOCUMENT', null);
+
+docTree.root = rootNode;
+
 rl.on('line', (line) => {
-  parseCharGroups(line);
+  const lineNode = new TreeNode('LINE', line);
+  rootNode.addChild(lineNode);
+  // parseCharGroups(line);
 });
 
 function parseCharGroups(line) {
@@ -33,6 +39,8 @@ function parseCharGroups(line) {
   }
   console.log(lexedLine);
 }
+
+console.log(docTree);
 
 function assignLexeme(charGroup) {
   if(/#{5}/g.test(charGroup)) return {lex: 'H5', val: charGroup};
