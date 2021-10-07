@@ -1,7 +1,7 @@
 # Hello world!
 
 ## Heading 2
-  Intented
+  Indented
 ### Heading 3
 
 #### Heading 4

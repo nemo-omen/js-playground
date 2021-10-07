@@ -3,12 +3,20 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js './doc/hello.md'"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "remark": "^14.0.1",
+    "remark-parse": "^10.0.0",
+    "remark-stringify": "^10.0.0",
+    "unified": "^10.1.0",
+    "unist-util-visit": "^4.1.0",
+    "vfile-reporter": "^7.0.2"
+  }
 }
