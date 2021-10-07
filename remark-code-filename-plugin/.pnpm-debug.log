@@ -1,0 +1,49 @@
+{
+  "0 debug pnpm:scope": {
+    "selected": 1
+  },
+  "1 debug pnpm:package-manifest": {
+    "initial": {
+      "name": "remark-code-filename-plugin",
+      "version": "1.0.0",
+      "description": "",
+      "main": "remark-code-filename.js",
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon index.js './hello.md'"
+      },
+      "keywords": [],
+      "author": "",
+      "license": "ISC"
+    },
+    "prefix": "/home/trainingmontage/dev/learning/js-playground/remark-code-filename-plugin"
+  },
+  "2 debug pnpm:context": {
+    "currentLockfileExists": false,
+    "storeDir": "/home/trainingmontage/.pnpm-store/v3",
+    "virtualStoreDir": "/home/trainingmontage/dev/learning/js-playground/remark-code-filename-plugin/node_modules/.pnpm"
+  },
+  "3 debug pnpm:stage": {
+    "prefix": "/home/trainingmontage/dev/learning/js-playground/remark-code-filename-plugin",
+    "stage": "resolution_started"
+  },
+  "4 error pnpm": {
+    "code": "ERR_PNPM_FETCH_404",
+    "hint": "units-autil-visit is not in the npm registry, or you have no permission to fetch it.\n\nNo authorization header was set for the request.",
+    "request": {
+      "url": "https://registry.npmjs.org/units-autil-visit"
+    },
+    "response": {
+      "size": 0,
+      "timeout": 60000
+    },
+    "pkgName": "units-autil-visit",
+    "pkgsStack": [],
+    "err": {
+      "name": "pnpm",
+      "message": "GET https://registry.npmjs.org/units-autil-visit: Not Found - 404",
+      "code": "ERR_PNPM_FETCH_404",
+      "stack": "pnpm: GET https://registry.npmjs.org/units-autil-visit: Not Found - 404\n    at RetryOperation._fn (/home/trainingmontage/.nvm/versions/node/v16.8.0/lib/node_modules/pnpm/dist/pnpm.cjs:84507:18)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    }
+  }
+}

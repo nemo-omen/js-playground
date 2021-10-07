@@ -1,0 +1,24 @@
+{
+  "name": "remark-code-filename-plugin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "remark-code-filename.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js './hello.md'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mdast-util-to-string": "^3.1.0",
+    "rehype-stringify": "^9.0.2",
+    "remark": "^14.0.1",
+    "remark-parse": "^10.0.0",
+    "remark-rehype": "^10.0.0",
+    "unified": "^10.1.0",
+    "unist-util-visit": "^4.1.0",
+    "vfile-reporter": "^7.0.2"
+  }
+}
