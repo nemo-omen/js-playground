@@ -1,9 +1,11 @@
 lockfileVersion: 5.3
 
 specifiers:
+  mdast-builder: ^1.1.1
   mdast-util-to-string: ^3.1.0
   rehype-stringify: ^9.0.2
   remark: ^14.0.1
+  remark-html: ^15.0.0
   remark-parse: ^10.0.0
   remark-rehype: ^10.0.0
   unified: ^10.1.0
@@ -11,9 +13,11 @@ specifiers:
   vfile-reporter: ^7.0.2
 
 dependencies:
+  mdast-builder: 1.1.1
   mdast-util-to-string: 3.1.0
   rehype-stringify: 9.0.2
   remark: 14.0.1
+  remark-html: 15.0.0
   remark-parse: 10.0.0
   remark-rehype: 10.0.0
   unified: 10.1.0
@@ -186,6 +190,12 @@ packages:
       '@types/unist': 2.0.6
     dev: false
 
+  /hast-util-sanitize/4.0.0:
+    resolution: {integrity: sha512-pw56+69jq+QSr/coADNvWTmBPDy+XsmwaF5KnUys4/wM1jt/fZdl7GPxhXXXYdXnz3Gj3qMkbUCH2uKjvX0MgQ==}
+    dependencies:
+      '@types/hast': 2.3.4
+    dev: false
+
   /hast-util-to-html/8.0.2:
     resolution: {integrity: sha512-ipLhUTMyyJi9F/LXaNDG9BrRdshP6obCfmUZYbE/+T639IdzqAOkKN4DyrEyID0gbb+rsC3PKf0XlviZwzomhw==}
     dependencies:
@@ -249,6 +259,12 @@ packages:
 
   /longest-streak/3.0.0:
     resolution: {integrity: sha512-XhUjWR5CFaQ03JOP+iSDS9koy8T5jfoImCZ4XprElw3BXsSk4MpVYOLw/6LTDKZhO13PlAXnB5gS4MHQTpkSOw==}
+    dev: false
+
+  /mdast-builder/1.1.1:
+    resolution: {integrity: sha512-a3KBk/LmYD6wKsWi8WJrGU/rXR4yuF4Men0JO0z6dSZCm5FrXXWTRDjqK0vGSqa+1M6p9edeuypZAZAzSehTUw==}
+    dependencies:
+      '@types/unist': 2.0.6
     dev: false
 
   /mdast-util-definitions/5.1.0:
@@ -605,6 +621,16 @@ packages:
     dependencies:
       '@types/hast': 2.3.4
       hast-util-to-html: 8.0.2
+      unified: 10.1.0
+    dev: false
+
+  /remark-html/15.0.0:
+    resolution: {integrity: sha512-Fsk04zueun0u3aM3dbwfVDRTOeEco0H4Dc3hWyv7XKra8smQQJEqnD0sFhQVe9v1KxYvzVcJ6ioXtuLux2SvJA==}
+    dependencies:
+      '@types/mdast': 3.0.10
+      hast-util-sanitize: 4.0.0
+      hast-util-to-html: 8.0.2
+      mdast-util-to-hast: 12.0.0
       unified: 10.1.0
     dev: false
 
