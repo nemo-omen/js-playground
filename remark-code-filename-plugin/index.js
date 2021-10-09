@@ -1,17 +1,15 @@
 import path from 'path';
 import fs from 'fs';
-import { readFileSync } from 'fs';
 import { unified } from 'unified';
-import { remark } from 'remark';
-import codeExtra from 'remark-code-extra';
-import html from 'remark-html';
+import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import rehypeDocument from 'rehype-document';
 import rehypeStringify from 'rehype-stringify';
-import codeFilename from './remark-code-filename.js';
 import report from 'vfile-reporter';
 import wrap from 'rehype-wrap-all';
-import remarkParse from 'remark-parse';
+import shiki from 'rehype-shiki';
+import { insertFileName } from './rehype-insert-filename.js'
+import { addStyle } from './rehype-add-style.js';
 
 const __dirname = path.resolve();
 
@@ -29,12 +27,18 @@ async function mdToHTML(buffer) {
     selector: 'pre',
     wrapper: 'figure.code-figure'
   })
+  .use(insertFileName)
+  .use(shiki)
+  .use(addStyle, 'style.css')
   .use(rehypeStringify)
   .process(buffer)
   .then((file) => {
+    const htmlFile = path.join(__dirname, 'hello.html');
+    const htmlContent = String(file);
     console.error(report(file));
-    console.log(String(file));
+    fs.writeFileSync(htmlFile, htmlContent);
   });
 }
+
 
 mdToHTML(buffer);

@@ -1,9 +1,11 @@
 lockfileVersion: 5.3
 
 specifiers:
+  hast-util-select: ^5.0.1
   mdast-builder: ^1.1.1
   mdast-util-to-string: ^3.1.0
   rehype-document: ^6.0.0
+  rehype-shiki: ^0.0.9
   rehype-stringify: ^9.0.2
   rehype-wrap: ^1.0.10
   rehype-wrap-all: ^1.1.0
@@ -17,9 +19,11 @@ specifiers:
   vfile-reporter: ^7.0.2
 
 dependencies:
+  hast-util-select: 5.0.1
   mdast-builder: 1.1.1
   mdast-util-to-string: 3.1.0
   rehype-document: 6.0.0
+  rehype-shiki: 0.0.9
   rehype-stringify: 9.0.2
   rehype-wrap: 1.0.10
   rehype-wrap-all: 1.1.0
@@ -93,6 +97,10 @@ packages:
 
   /bcp-47-match/1.0.3:
     resolution: {integrity: sha512-LggQ4YTdjWQSKELZF5JwchnBa1u0pIQSZf5lSdOHEdbVP55h0qICA/FUp3+W99q0xqxYa1ZQizTUH87gecII5w==}
+    dev: false
+
+  /bcp-47-match/2.0.0:
+    resolution: {integrity: sha512-B3/f3fqIdWLUQE/iFIahFmDKB6X2U7RcugRcdEj2Ntju13zrewCSqnEwG92iUUKfkZ6I+UMtT2NCBwLCvXBOmg==}
     dev: false
 
   /boolbase/1.0.0:
@@ -170,6 +178,11 @@ packages:
     hasBin: true
     dev: false
 
+  /direction/2.0.0:
+    resolution: {integrity: sha512-J+nMrvyX/yHTCu1FYjylOGSBKB0QCcXoY10VNOW6N0QxJRV3V5VP+QSkQC7yFaVPb3ZL7pVE/Nu0rcf4m1TbpQ==}
+    hasBin: true
+    dev: false
+
   /eastasianwidth/0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
     dev: false
@@ -214,6 +227,10 @@ packages:
 
   /hast-util-has-property/1.0.4:
     resolution: {integrity: sha512-ghHup2voGfgFoHMGnaLHOjbYFACKrRh9KFttdCzMCbFoBMJXiNi2+XTrPP8+q6cDJM/RSqlCfVWrjp1H201rZg==}
+    dev: false
+
+  /hast-util-has-property/2.0.0:
+    resolution: {integrity: sha512-4Qf++8o5v14us4Muv3HRj+Er6wTNGA/N9uCaZMty4JWvyFKLdhULrv4KE1b65AthsSO9TXSZnjuxS8ecIyhb0w==}
     dev: false
 
   /hast-util-is-element/1.1.0:
@@ -262,6 +279,27 @@ packages:
       zwitch: 1.0.5
     dev: false
 
+  /hast-util-select/5.0.1:
+    resolution: {integrity: sha512-cxnImmR/tN/ipvbwGrKtEErmy83K1xWx8Bu7nImiwTOJ7X/fW1X6L1241ux+MYUXDwx8GxrE4LVmXRlEnbQsQA==}
+    dependencies:
+      '@types/hast': 2.3.4
+      '@types/unist': 2.0.6
+      bcp-47-match: 2.0.0
+      comma-separated-tokens: 2.0.2
+      css-selector-parser: 1.4.1
+      direction: 2.0.0
+      hast-util-has-property: 2.0.0
+      hast-util-is-element: 2.1.1
+      hast-util-to-string: 2.0.0
+      hast-util-whitespace: 2.0.0
+      not: 0.1.0
+      nth-check: 2.0.1
+      property-information: 6.0.1
+      space-separated-tokens: 2.0.1
+      unist-util-visit: 4.1.0
+      zwitch: 2.0.2
+    dev: false
+
   /hast-util-to-html/8.0.2:
     resolution: {integrity: sha512-ipLhUTMyyJi9F/LXaNDG9BrRdshP6obCfmUZYbE/+T639IdzqAOkKN4DyrEyID0gbb+rsC3PKf0XlviZwzomhw==}
     dependencies:
@@ -279,6 +317,12 @@ packages:
 
   /hast-util-to-string/1.0.4:
     resolution: {integrity: sha512-eK0MxRX47AV2eZ+Lyr18DCpQgodvaS3fAQO2+b9Two9F5HEoRPhiUMNzoXArMJfZi2yieFzUBMRl3HNJ3Jus3w==}
+    dev: false
+
+  /hast-util-to-string/2.0.0:
+    resolution: {integrity: sha512-02AQ3vLhuH3FisaMM+i/9sm4OXGSq1UhOOCpTLLQtHdL3tZt7qil69r8M8iDkZYyC0HCFylcYoP+8IO7ddta1A==}
+    dependencies:
+      '@types/hast': 2.3.4
     dev: false
 
   /hast-util-whitespace/1.0.4:
@@ -341,8 +385,22 @@ packages:
     engines: {node: '>=12'}
     dev: false
 
+  /json5/2.2.0:
+    resolution: {integrity: sha512-f+8cldu7X/y7RAJurMEJmdoKXGB/X550w2Nr3tTbezL6RwEE/iMcm+tZnXeoZtKuOq6ft8+CqzEkrIgx1fPoQA==}
+    engines: {node: '>=6'}
+    hasBin: true
+    dependencies:
+      minimist: 1.2.5
+    dev: false
+
   /longest-streak/3.0.0:
     resolution: {integrity: sha512-XhUjWR5CFaQ03JOP+iSDS9koy8T5jfoImCZ4XprElw3BXsSk4MpVYOLw/6LTDKZhO13PlAXnB5gS4MHQTpkSOw==}
+    dev: false
+
+  /lru-cache/5.1.1:
+    resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
+    dependencies:
+      yallist: 3.1.1
     dev: false
 
   /mdast-builder/1.1.1:
@@ -588,6 +646,10 @@ packages:
       - supports-color
     dev: false
 
+  /minimist/1.2.5:
+    resolution: {integrity: sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==}
+    dev: false
+
   /ms/2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
     dev: false
@@ -605,6 +667,12 @@ packages:
   /object-keys/1.1.1:
     resolution: {integrity: sha512-NuAESUOUMrlIXOfHKzD6bpPu3tYt3xvjNdRIQ+FeT0lNb4K8WR70CaDxhuNguS2XG+GjkyMwOzsN5ZktImfhLA==}
     engines: {node: '>= 0.4'}
+    dev: false
+
+  /onigasm/2.2.5:
+    resolution: {integrity: sha512-F+th54mPc0l1lp1ZcFMyL/jTs2Tlq4SqIHKIXGZOR/VkHkF9A7Fr5rRr5+ZG/lWeRsyrClLYRq7s/yFQ/XhWCA==}
+    dependencies:
+      lru-cache: 5.1.1
     dev: false
 
   /parse-entities/3.0.0:
@@ -724,6 +792,19 @@ packages:
       unified: 10.1.0
     dev: false
 
+  /rehype-shiki/0.0.9:
+    resolution: {integrity: sha512-jyatOsBu0A8ZUnQig0QK0xq7CFZpeEukr0DZazg/zFLZATbdcbnIlO779pIW2El/C2S5An33sN2d4w2kmdS+Bw==}
+    dependencies:
+      hast-util-to-string: 1.0.4
+      shiki: 0.1.7
+      shiki-languages: 0.1.6
+      unist-builder: 2.0.3
+      unist-util-visit: 2.0.3
+    transitivePeerDependencies:
+      - onigasm
+      - oniguruma
+    dev: false
+
   /rehype-stringify/9.0.2:
     resolution: {integrity: sha512-BuVA6lAEYtOpXO2xuHLohAzz8UNoQAxAqYRqh4QEEtU39Co+P1JBZhw6wXA9hMWp+JLcmrxWH8+UKcNSr443Fw==}
     dependencies:
@@ -804,6 +885,45 @@ packages:
       - supports-color
     dev: false
 
+  /shiki-languages/0.1.6:
+    resolution: {integrity: sha512-rMu+z97UCPKMtPBkzLBItReawXnlOgXZmELFwI/s3ATxd9VzJgSQTtQW/hmW5EYCrzF2kAUjoOnn+50/MPWjgQ==}
+    dependencies:
+      vscode-textmate: github.com/octref/vscode-textmate/e65aabe2227febda7beaad31dd0fca1228c5ddf3
+    transitivePeerDependencies:
+      - onigasm
+      - oniguruma
+    dev: false
+
+  /shiki-languages/0.1.6_onigasm@2.2.5:
+    resolution: {integrity: sha512-rMu+z97UCPKMtPBkzLBItReawXnlOgXZmELFwI/s3ATxd9VzJgSQTtQW/hmW5EYCrzF2kAUjoOnn+50/MPWjgQ==}
+    dependencies:
+      vscode-textmate: github.com/octref/vscode-textmate/e65aabe2227febda7beaad31dd0fca1228c5ddf3_onigasm@2.2.5
+    transitivePeerDependencies:
+      - onigasm
+      - oniguruma
+    dev: false
+
+  /shiki-themes/0.1.7_onigasm@2.2.5:
+    resolution: {integrity: sha512-mpF/VynGun/uNdjOIPnyPv4boN/QYDh+zE94SavgvmatMHkXXjZhls19Xv9rcRwuxUrWfXjaPkEZj7VAk94GGg==}
+    dependencies:
+      json5: 2.2.0
+      vscode-textmate: github.com/octref/vscode-textmate/e65aabe2227febda7beaad31dd0fca1228c5ddf3_onigasm@2.2.5
+    transitivePeerDependencies:
+      - onigasm
+      - oniguruma
+    dev: false
+
+  /shiki/0.1.7:
+    resolution: {integrity: sha512-9J0PhAdXv6tt3FZf82oKZkcV8c8NRZYJEOH0eIrrxfcyNzMuB79tJFGFSI3OhhiYFL5namob/Ii0Ri4iDoF15A==}
+    dependencies:
+      onigasm: 2.2.5
+      shiki-languages: 0.1.6_onigasm@2.2.5
+      shiki-themes: 0.1.7_onigasm@2.2.5
+      vscode-textmate: github.com/octref/vscode-textmate/e65aabe2227febda7beaad31dd0fca1228c5ddf3_onigasm@2.2.5
+    transitivePeerDependencies:
+      - oniguruma
+    dev: false
+
   /space-separated-tokens/1.1.5:
     resolution: {integrity: sha512-q/JSVd1Lptzhf5bkYm4ob4iWPjx0KiRe3sRFBNrVqbJkFaBm5vbbowy1mymoPNLRa52+oadOhJ+K49wsSeSjTA==}
     dev: false
@@ -872,6 +992,10 @@ packages:
       is-plain-obj: 4.0.0
       trough: 2.0.2
       vfile: 5.1.0
+    dev: false
+
+  /unist-builder/2.0.3:
+    resolution: {integrity: sha512-f98yt5pnlMWlzP539tPc4grGMsFaQQlP/vM396b00jngsiINumNmsY8rkXjfoi1c6QaM8nQ3vaGDuoKWbe/1Uw==}
     dev: false
 
   /unist-builder/3.0.0:
@@ -1015,10 +1139,35 @@ packages:
     engines: {node: '>=0.4'}
     dev: false
 
+  /yallist/3.1.1:
+    resolution: {integrity: sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g==}
+    dev: false
+
   /zwitch/1.0.5:
     resolution: {integrity: sha512-V50KMwwzqJV0NpZIZFwfOD5/lyny3WlSzRiXgA0G7VUnRlqttta1L6UQIHzd6EuBY/cHGfwTIck7w1yH6Q5zUw==}
     dev: false
 
   /zwitch/2.0.2:
     resolution: {integrity: sha512-JZxotl7SxAJH0j7dN4pxsTV6ZLXoLdGME+PsjkL/DaBrVryK9kTGq06GfKrwcSOqypP+fdXGoCHE36b99fWVoA==}
+    dev: false
+
+  github.com/octref/vscode-textmate/e65aabe2227febda7beaad31dd0fca1228c5ddf3:
+    resolution: {tarball: https://codeload.github.com/octref/vscode-textmate/tar.gz/e65aabe2227febda7beaad31dd0fca1228c5ddf3}
+    name: vscode-textmate
+    version: 4.0.1
+    peerDependencies:
+      onigasm: ^2.1.0
+      oniguruma: ^7.0.0
+    dev: false
+
+  github.com/octref/vscode-textmate/e65aabe2227febda7beaad31dd0fca1228c5ddf3_onigasm@2.2.5:
+    resolution: {tarball: https://codeload.github.com/octref/vscode-textmate/tar.gz/e65aabe2227febda7beaad31dd0fca1228c5ddf3}
+    id: github.com/octref/vscode-textmate/e65aabe2227febda7beaad31dd0fca1228c5ddf3
+    name: vscode-textmate
+    version: 4.0.1
+    peerDependencies:
+      onigasm: ^2.1.0
+      oniguruma: ^7.0.0
+    dependencies:
+      onigasm: 2.2.5
     dev: false
