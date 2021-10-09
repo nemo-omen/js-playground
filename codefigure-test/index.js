@@ -8,7 +8,7 @@ import rehypeStringify from 'rehype-stringify';
 import report from 'vfile-reporter';
 import wrap from 'rehype-wrap-all';
 import shiki from 'rehype-shiki';
-import { insertFileName } from './rehype-insert-filename.js'
+import { insertFileName } from '../rehype-code-figure/index.js'
 import { addStyle } from './rehype-add-style.js';
 
 const __dirname = path.resolve();

@@ -1,0 +1,16 @@
+{
+  "name": "rehype-code-figure",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "hast-util-select": "^5.0.1"
+  }
+}
