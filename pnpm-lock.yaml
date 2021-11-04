@@ -1,0 +1,13 @@
+lockfileVersion: 5.3
+
+specifiers:
+  performant-array-to-tree: ^1.9.1
+
+dependencies:
+  performant-array-to-tree: 1.9.1
+
+packages:
+
+  /performant-array-to-tree/1.9.1:
+    resolution: {integrity: sha512-t+Hiy1HbKTVXg+mdcDUwPwAGgrLMtNUOhs2vV0M9MG2aAfnXQT9czAadksufMnf75h4xYU014HqlQ91JZ4XdlA==}
+    dev: false

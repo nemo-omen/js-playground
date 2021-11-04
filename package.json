@@ -17,5 +17,8 @@
     "url": "https://github.com/nemo-omen/js-playground/issues"
   },
   "homepage": "https://github.com/nemo-omen/js-playground#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "performant-array-to-tree": "^1.9.1"
+  }
 }
