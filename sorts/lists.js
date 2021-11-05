@@ -1,17 +1,3 @@
-export const unorderedStrings = [
-  "banana",
-  "dinosaur",
-  "piano",
-  "leaf",
-  "october",
-  "whiskey",
-  "apple",
-  "keyboard",
-  "ambulate",
-  "shoe"
-];
-
-const tinyList = shuffle(buildList(10));
 const medList = shuffle(buildList(1000));
 const bigList = shuffle(buildList(10000));
 const largeList = shuffle(buildList(100000));
@@ -37,4 +23,4 @@ function shuffle(array) {
   return array;
 }
 
-export { tinyList, medList, bigList, largeList, extraLargeList};
+export { medList, bigList, largeList, extraLargeList};
