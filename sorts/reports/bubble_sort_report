@@ -1,15 +1,10 @@
--------------------
-*** BUBBLE SORT ***
--------------------
+--- bubble sort ---
 
-1000 elements
--------------------
-Exec time: 3.3147699999999993 ms
+1000 elements:
+Exec time: 3.1540209999999993 ms
 
-10000 elements
--------------------
-Exec time: 124.18766299999999 ms
+10000 elements:
+Exec time: 118.55872199999999 ms
 
-100000 elements
--------------------
-Exec time: 20914.770851 ms
+100000 elements:
+Exec time: 19177.072328 ms

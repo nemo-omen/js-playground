@@ -3,74 +3,47 @@ import { JSDOM } from 'jsdom';
 
 import { bubbleSort } from './bubbleSort.js';
 import { insertionSort } from './insertionSort.js';
+import { selectionSort } from './selectionSort.js';
+import { exchangeSort } from './exchangeSort.js';
 import { medList, bigList, largeList, extraLargeList } from "./lists.js";
 
 const { window } = new JSDOM();
 
-console.log('START BUBBLE SORT');
+const allArrays = [medList, bigList, largeList];
 
-let bubbleSortOut = `-------------------\n*** BUBBLE SORT ***\n-------------------`;
+const sorts = {
+  bubble: (array) => bubbleSort(array),
+  insertion: (array) => insertionSort(array),
+  selection: (array) => selectionSort(array),
+  exchange: (array) => exchangeSort(array),
+};
 
-const bmlStart = window.performance.now();
-bubbleSort(medList);
-const bmlStop = window.performance.now();
-bubbleSortOut += `\n\n1000 elements\n-------------------\n${calcTime(bmlStart, bmlStop)}`;
 
-const bblStart = window.performance.now();
-bubbleSort(bigList);
-const bblStop = window.performance.now();
-bubbleSortOut += `\n\n10000 elements\n-------------------\n${calcTime(bblStart, bblStop)}`;
+sortReport(allArrays, 'bubble');
+sortReport(allArrays, 'insertion');
+sortReport(allArrays, 'selection');
+sortReport(allArrays, 'exchange');
 
-const bllStart = window.performance.now();
-bubbleSort(largeList);
-const bllStop = window.performance.now();
-bubbleSortOut += `\n\n100000 elements\n-------------------\n${calcTime(bllStart, bllStop)}`;
 
-console.log('END BUBBLE SORT');
+function execSort(functionName, array) {
+  sorts[functionName](array);
+}
 
-fs.writeFileSync('./reports/bubble_sort_report', bubbleSortOut);
+function sortReport(arrays, functionName) {
+  console.log(`start ${functionName} sort`);
+  let sortOutput = `--- ${functionName} sort ---`;
 
-console.log('START INSERTION SORT');
-let insertionSortOut = `-------------------\n*** INSERTION SORT ***\n-------------------`;
+  for(let array of arrays) {
+    const start = window.performance.now();
+    execSort(functionName, array);
+    const stop = window.performance.now();
+    sortOutput += `\n\n${array.length} elements:\n${calcTime(start, stop)}`;
+  }
 
-const imlStart = window.performance.now();
-insertionSort(medList);
-const imlStop = window.performance.now();
-insertionSortOut += `\n\n1000 elements\n-------------------\n${calcTime(imlStart, imlStop)}`;
+  console.log(`end ${functionName} sort`);
 
-const iblStart = window.performance.now();
-insertionSort(bigList);
-const iblStop = window.performance.now();
-insertionSortOut += `\n\n10000 elements\n-------------------\n${calcTime(iblStart, iblStop)}`;
-
-const illStart = window.performance.now();
-insertionSort(largeList);
-const illStop = window.performance.now();
-insertionSortOut += `\n\n100000 elements\n-------------------\n${calcTime(illStart, illStop)}`;
-
-console.log('END INSERTION SORT');
-fs.writeFileSync('./reports/insertion_sort_report', insertionSortOut);
-
-console.log('START SELECTION SORT');
-let selectionSortOut = `-------------------\n*** INSERTION SORT ***\n-------------------`;
-
-const slmlStart = window.performance.now();
-selectionSort(medList);
-const slmlStop = window.performance.now();
-insertionSortOut += `\n\n1000 elements\n-------------------\n${calcTime(slmlStart, slmlStop)}`;
-
-const slblStart = window.performance.now();
-selectionSort(bigList);
-const slblStop = window.performance.now();
-insertionSortOut += `\n\n10000 elements\n-------------------\n${calcTime(slblStart, slblStop)}`;
-
-const slllStart = window.performance.now();
-selectionSort(largeList);
-const slllStop = window.performance.now();
-insertionSortOut += `\n\n100000 elements\n-------------------\n${calcTime(slllStart, slllStop)}`;
-
-console.log('END SELECTION SORT');
-fs.writeFileSync('./reports/selection_sort_report', selectionSortOut);
+  fs.writeFileSync(`./reports/${functionName}_sort_report`, sortOutput);
+}
 
 function calcTime(start, end) {
   return `Exec time: ${end - start} ms`;

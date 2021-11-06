@@ -1,0 +1,10 @@
+--- exchange sort ---
+
+1000 elements:
+Exec time: 2.069939000000886 ms
+
+10000 elements:
+Exec time: 37.05923400000029 ms
+
+100000 elements:
+Exec time: 3610.337502999999 ms
