@@ -1,13 +1,13 @@
 --- shell sort ---
 
 1000 elements:
-Exec time: 0.6557179999981599 ms
+Exec time: 0.7252900000021327 ms
 
 10000 elements:
-Exec time: 2.703585999999632 ms
+Exec time: 2.9048059999986435 ms
 
 100000 elements:
-Exec time: 6.379613999997673 ms
+Exec time: 6.791478000002826 ms
 
 1000000 elements:
-Exec time: 203.02922899999976 ms
+Exec time: 226.2201329999989 ms

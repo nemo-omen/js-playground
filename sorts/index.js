@@ -39,7 +39,6 @@ function writeSortedOutput(array) {
   fs.writeFileSync(`./reports/out/shell_${array.length}.out`, JSON.stringify(sorted));
 }
 
-
 function execSort(functionName, array) {
   sorts[functionName](array);
 }

@@ -15,4 +15,4 @@ export function shellSort(array) {
   return array;
 }
 
-// console.log(shellSort(unsorted));
+console.log(shellSort(unsorted));
