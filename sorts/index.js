@@ -5,24 +5,39 @@ import { bubbleSort } from './bubbleSort.js';
 import { insertionSort } from './insertionSort.js';
 import { selectionSort } from './selectionSort.js';
 import { exchangeSort } from './exchangeSort.js';
+import { shellSort } from './shellSort.js';
+import { bucketSort } from './bucketSort.js';
+// import { mergeSort } from 'mergeSort.js';
 import { medList, bigList, largeList, extraLargeList } from "./lists.js";
 
 const { window } = new JSDOM();
 
-const allArrays = [medList, bigList, largeList];
+const smallArrays = [medList, bigList, largeList];
+const allArrays = [...smallArrays, extraLargeList];
 
 const sorts = {
   bubble: (array) => bubbleSort(array),
   insertion: (array) => insertionSort(array),
   selection: (array) => selectionSort(array),
   exchange: (array) => exchangeSort(array),
+  shell: (array) => shellSort(array),
+  bucket: (array) => bucketSort(array),
 };
 
 
-sortReport(allArrays, 'bubble');
-sortReport(allArrays, 'insertion');
-sortReport(allArrays, 'selection');
-sortReport(allArrays, 'exchange');
+sortReport(smallArrays, 'bubble');
+sortReport(smallArrays, 'insertion');
+sortReport(smallArrays, 'selection');
+sortReport(smallArrays, 'exchange');
+sortReport(allArrays, 'shell');
+sortReport(allArrays, 'bucket');
+
+writeSortedOutput(extraLargeList);
+
+function writeSortedOutput(array) {
+  const sorted = shellSort(array);
+  fs.writeFileSync(`./reports/out/shell_${array.length}.out`, JSON.stringify(sorted));
+}
 
 
 function execSort(functionName, array) {

@@ -1,10 +1,10 @@
 --- bubble sort ---
 
 1000 elements:
-Exec time: 3.1540209999999993 ms
+Exec time: 3.144292000000001 ms
 
 10000 elements:
-Exec time: 118.55872199999999 ms
+Exec time: 128.877048 ms
 
 100000 elements:
-Exec time: 19177.072328 ms
+Exec time: 19042.511458 ms

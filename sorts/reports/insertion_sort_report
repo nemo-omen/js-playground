@@ -1,10 +1,10 @@
 --- insertion sort ---
 
 1000 elements:
-Exec time: 2.0654710000017076 ms
+Exec time: 2.0167189999992843 ms
 
 10000 elements:
-Exec time: 19.684626000002027 ms
+Exec time: 19.429699000000255 ms
 
 100000 elements:
-Exec time: 1907.7612200000003 ms
+Exec time: 1894.849215000002 ms

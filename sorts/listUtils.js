@@ -14,19 +14,34 @@
 //   writeListToTextFile(list.data, list.name);
 // }
 
+/**
+ * Writes a list to a text file
+ * @param {*} list 
+ * @param {*} filename 
+ */
 function writeListToTextFile(list, filename) {
   fs.writeFileSync(filename, list.join(','));
 }
 
-function buildList(size) {
+/**
+ * Creates an array of integers from 1 - specified size
+ * @param {size} size 
+ * @returns integer[]
+ */
+export function buildList(size) {
   let temp = [];
-  for(let i = 0; i < size; i++) {
+  for(let i = 1; i <= size; i++) {
     temp.push(i);
   }
   return temp;
 }
 
-function shuffle(array) {
+/**
+ * Shuffles a given array
+ * @param {*} array array to be shuffled
+ * @returns shuffled arrays
+ */
+export function shuffle(array) {
   let m = array.length, t, i;
 
   while(m) {

@@ -1,10 +1,10 @@
 --- selection sort ---
 
 1000 elements:
-Exec time: 2.019173000000592 ms
+Exec time: 1.869152999999642 ms
 
 10000 elements:
-Exec time: 41.59707800000251 ms
+Exec time: 39.678320999999414 ms
 
 100000 elements:
-Exec time: 3656.4808190000003 ms
+Exec time: 3609.858296000002 ms

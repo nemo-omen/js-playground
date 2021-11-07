@@ -1,0 +1,13 @@
+--- bucket sort ---
+
+1000 elements:
+Exec time: 0.43644799999674433 ms
+
+10000 elements:
+Exec time: 4.9234660000001895 ms
+
+100000 elements:
+Exec time: 16.95980000000054 ms
+
+1000000 elements:
+Exec time: 159.69514499999786 ms
