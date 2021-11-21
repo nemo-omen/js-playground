@@ -5,13 +5,7 @@ interface IStack<T> {
   size(): number;
   empty(): boolean;
   clear(): void;
-  peek(): T[];
-}
-
-declare global {
-  interface Array<T> {
-    peek(): T;
-  }
+  data(): T[];
 }
 
 class Stack<T> implements IStack<T> {
@@ -43,7 +37,7 @@ class Stack<T> implements IStack<T> {
     this.stack.length = 0;
   }
 
-  peek(): T[] {
+  data(): T[] {
     return this.stack;
   }
 }
