@@ -5,6 +5,7 @@ export function selectionSort(array) {
   for(let i = 0; i < array.length - 1; i++) {
     // console.log(`selection sort step ${i}: `, array);
     minIndex = i;
+    console.log(i, ': ', array);
     for(let j = i + 1; j < array.length; j++) {
       if(array[j] < array[minIndex]) {
         let temp = array[minIndex];
@@ -16,4 +17,4 @@ export function selectionSort(array) {
   return array;
 }
 
-// console.log('sorted: ', selectionSort(unsorted));
+console.log('sorted: ', selectionSort(unsorted));

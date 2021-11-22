@@ -1,14 +1,11 @@
-interface IQueue<T> {
-  size(): number;
-  empty(): boolean;
-  front(): T | undefined;
-  back(): T | undefined;
-  dequeue(): T | undefined;
-  enqueue(item: T): void;
-  data(): T[];
+class UnderflowError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = 'UnderflowError';
+  }
 }
 
-class Queue<T> implements IQueue<T> {
+class Queue<T> {
   private queue: T[] = [];
 
   size(): number {
@@ -33,8 +30,9 @@ class Queue<T> implements IQueue<T> {
 
   dequeue(): T {
     if(this.empty()) {
-      throw new Error('Queue underflow.');
+      throw new UnderflowError('Queue underflow.');
     }
+
     const front = this.queue[0];
 
     for(let i = 0; i < this.queue.length; i++) {
@@ -46,6 +44,10 @@ class Queue<T> implements IQueue<T> {
 
   data(): T[] {
     return this.queue;
+  }
+
+  [Deno.customInspect](): string {
+    return 'queue: <' + this.queue + ']';
   }
 }
 
