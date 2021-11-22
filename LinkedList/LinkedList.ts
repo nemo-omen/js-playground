@@ -1,3 +1,5 @@
+import * as Colors from 'https://deno.land/std@0.115.1/fmt/colors.ts';
+import { sprintf } from 'https://deno.land/std@0.115.1/fmt/printf.ts';
 export class ListNode<T> {
   data: T;
   next: ListNode<T> | undefined;
@@ -29,7 +31,7 @@ export class SingleLinkedList<T> {
     let node = new ListNode(val);
 
     if(node !== null && node !== undefined) {
-      if(this.head === null && this.head === undefined) {
+      if(this.head === null || this.head === undefined) {
         this.head = node;
         this.tail = this.head;
       } else {
@@ -91,22 +93,33 @@ export class SingleLinkedList<T> {
     return this.tail!;
   }
 
-  // [Deno.customInspect]() {
-  //   let output: string = '';
+  [Deno.customInspect]() {
+    let output: string = '';
 
-  //   if(this.head === undefined || this.head === null) {
-  //     output += '[]';
-  //   } else {
-  //     let current = this.head;
-  //     output += '[' + current!.data + " ";
+    if(this.head === undefined || this.head === null) {
+      output += '[]';
+    } else {
+      let current = this.head;
+
+      // output += sprintf(
+      //   Colors.green('[ '), 
+      //   Colors.blue('{ '), 
+      //   Colors.yellow(' id: '), 
+      //   Colors.white(`${current.id},`),
+      //   Colors.yellow('data: '),
+      //   Colors.white(`${current.data} `),
+      //   Colors.blue('} '),
+      //   Colors.green(']')
+      //   );
+      output += `[ { id: ${current.id}, data: ${current.data} }`;
       
-  //     while(current.next) {
-  //       output += "->" + current.data + " ";
-  //       current = current.next;
-  //     }
-  //     output += ']';
-  //   }
+      while(current.next) {
+        current = current.next;
+        output += `\n \t-> { id: ${current.id}, data: ${current.data} }`;
+      }
+      output += '\n]';
+    }
 
-  //   return output;
-  // }
+    return output;
+  }
 }
