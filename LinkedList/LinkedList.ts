@@ -1,5 +1,6 @@
 import * as Colors from 'https://deno.land/std@0.115.1/fmt/colors.ts';
 import { sprintf } from 'https://deno.land/std@0.115.1/fmt/printf.ts';
+import * as ink from 'https://deno.land/x/ink/mod.ts'
 export class ListNode<T> {
   data: T;
   next: ListNode<T> | undefined;
@@ -48,6 +49,7 @@ export class SingleLinkedList<T> {
     const node = new ListNode(val);
     node.next = this.head;
     this.head = node;
+    this.length++;
     this.head.id = this.length;
   }
 
@@ -56,6 +58,7 @@ export class SingleLinkedList<T> {
 
     let node = this.head!;
     this.head = this.head!.next;
+    this.length--;
     return node;
   }
 
@@ -93,29 +96,36 @@ export class SingleLinkedList<T> {
     return this.tail!;
   }
 
-  [Deno.customInspect]() {
+  size(): number {
+    return this.length;
+  }
+
+
+  [Symbol.for('Deno.customInspect')](): string {
     let output: string = '';
 
     if(this.head === undefined || this.head === null) {
-      output += '[]';
+      output += ink.colorize('<green>[]</green>');
     } else {
       let current = this.head;
-
-      // output += sprintf(
-      //   Colors.green('[ '), 
-      //   Colors.blue('{ '), 
-      //   Colors.yellow(' id: '), 
-      //   Colors.white(`${current.id},`),
-      //   Colors.yellow('data: '),
-      //   Colors.white(`${current.data} `),
-      //   Colors.blue('} '),
-      //   Colors.green(']')
-      //   );
-      output += `[ { id: ${current.id}, data: ${current.data} }`;
+      output += 
+        ink.colorize('<green>[</green> ') + 
+        ink.colorize('\n<blue>{</blue> ') + 
+        ink.colorize('<yellow> id:</yellow> ') + 
+        ink.colorize(`<white>${current.id}, </white>`) +
+        ink.colorize('<yellow>data:</yellow> ') +
+        ink.colorize(`<white>${current.data}</white> `) +
+        ink.colorize('<blue>}</blue> ');
       
       while(current.next) {
         current = current.next;
-        output += `\n \t-> { id: ${current.id}, data: ${current.data} }`;
+        output += ink.colorize('<magenta> -> </magenta>') + 
+          ink.colorize('<blue>{ </blue>') + 
+          ink.colorize('<yellow>id:</yellow> ') + 
+          ink.colorize(`<white>${current.id},</white> `) + 
+          ink.colorize('<yellow>data:</yellow> ') + 
+          ink.colorize(`<white>${current.data} </white>`) + 
+          ink.colorize('<blue>}</blue>');
       }
       output += '\n]';
     }
