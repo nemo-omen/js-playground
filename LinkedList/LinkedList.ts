@@ -100,6 +100,43 @@ export class SingleLinkedList<T> {
     return this.length;
   }
 
+  find(val: T | number): ListNode<T> | undefined {
+    if(!this.head) throw new ListUnderflowError();
+
+    let current = this.head!;
+    for(let i: number = 0; i < this.length; i++) {
+      if(typeof val === 'number') {
+        if(current!.id === val) return current;
+      } else {
+        if(current!.data === val) return current;
+      }
+      if(current.next) {
+        current = current!.next;
+      }
+    }
+  }
+
+  // remove(val: T | number): boolean {
+  //   if(!this.head) throw new ListUnderflowError();
+
+  //   let current: ListNode<T> = this.head!;
+  //   let previous: ListNode<T> | undefined;
+  //   let next: ListNode<T> | undefined;
+
+  //   for(let i: number = 0; i < this.length; i++) {
+  //     if(typeof val === 'number') {
+  //       if(current!.id === val) ;
+  //     } else {
+  //       if(current!.data === val) return current;
+  //     }
+      
+  //     if(current.next) {
+  //       current = current!.next;
+  //     }
+
+  //   return false;
+  // }
+
 
   [Symbol.for('Deno.customInspect')](): string {
     let output: string = '';

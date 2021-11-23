@@ -18,3 +18,7 @@ list.pop();
 console.log(list);
 list.pop();
 console.log(list);
+
+// console.log(list.find('Fifth'));
+
+console.log('find by id: ', list.find(8));
